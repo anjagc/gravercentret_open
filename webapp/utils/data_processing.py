@@ -390,7 +390,7 @@ def create_user_session_log(page_name):
     if "user_id" not in st.session_state:
         st.session_state["user_id"] = str(uuid.uuid4())  # Generate a unique ID
         print(f"[{timestamp}] New user session: {st.session_state["user_id"]} (Forside)")
-
-    # Log the user session with a print statement
-    user_id = st.session_state["user_id"]
-    print(f"[{timestamp}] User session: {user_id} ({page_name})")
+    else:
+        # Log the user session with a print statement
+        user_id = st.session_state["user_id"]
+        print(f"[{timestamp}] User session: {user_id} ({page_name})")
