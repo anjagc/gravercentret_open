@@ -41,3 +41,5 @@ st.logo("webapp/images/GC_png_oneline_lockup_Outline_Blaa_RGB.png")
 
 # Title of the app
 st.title("Test af Streamlit")
+
+create_user_session_log("Forside")
