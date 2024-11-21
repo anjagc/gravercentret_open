@@ -1,11 +1,9 @@
 import streamlit as st
 import polars as pl
-import base64
 import os
 import sys
 from utils.data_processing import (
     get_data,
-    decrypt_dataframe,
     get_unique_kommuner,
     get_unique_categories,
     filter_dataframe_by_choice,
@@ -37,23 +35,14 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 
 create_user_session_log("Forside")
 
-with st.spinner("Klargør side..."):
-    df_retrieved = get_data()
+df_pl = get_data()
 
-    encoded_key = os.getenv("ENCRYPTION_KEY")
-
-    if encoded_key is None:
-        raise ValueError("ENCRYPTION_KEY is not set in the environment variables.")
-
-    encryption_key = base64.b64decode(encoded_key)
-
-    col_list = ["Område", "ISIN kode", "Værdipapirets navn"]
-    df_pl = decrypt_dataframe(df_retrieved, encryption_key, col_list)
 
 st.logo("webapp/images/GC_png_oneline_lockup_Outline_Blaa_RGB.png")
 
 # Title of the app
 st.title("Kommunernes og regionernes investeringer")
+
 st.markdown(
     """ 
     **Hvis der anvendes data fra dette site i et journalistisk produkt eller i en anden sammenhæng, skal Gravercentret og Danwatch nævnes som kilde.** 
@@ -67,7 +56,8 @@ st.markdown(
             Disse oplysninger har vi sammenholdt med lister over hvilke værdipapirer, der er sortlistet af danske banker og pensionsselskaber samt FN. \n
             Herunder kan du se oplysninger fra alle kommuner og regioner – og du kan downloade oplysningerne i Excel-format.
             I den lyseblå kolonne til venstre kan du søge i data.\n
-            *OBS: Data for Københavns Kommune er d. 15/10 blevet opdateret på sitet. Derfor har deres data ændret sig, samt total tallene.*
+            *OBS: D. 24/10 er data opdateret, da vi har fundet flere statsobligationer, der ikke var markeret fra start, og d. 07/11 er data opdateret, da markedsværdierne for nogle af Odense Kommunes værdipapirer er tilrettet.*
+
             """
 )
 
@@ -135,7 +125,7 @@ with st.sidebar:
         "Vælg problemkategori:",
         unique_categories_list,  # Options
         help="Vi har grupperet de mange årsager til eksklusion i hovedkategorier. Vælg én eller flere.",
-        placeholder="Vælg problemkategori.",
+        placeholder="",
     )
 
     search_query = st.text_input(
@@ -202,7 +192,7 @@ with col2:
     with st.container(border=True):
         header_numbers = "Antal investeringer udpeget som problematiske:"
         st.markdown(
-            f'<h4 style="color:black; text-align:center;">{header_numbers}</h4>',
+            f'<h4 style="text-align:center;">{header_numbers}</h4>',
             unsafe_allow_html=True,
         )
 
@@ -210,7 +200,7 @@ with col2:
         problematic_count = filtered_df.filter(filtered_df["Priority"].is_in([2, 3])).shape[0]
         problematic_count = format_number_european(problematic_count)
         st.markdown(
-            f'<h2 style="color:black; text-align:center;">{problematic_count}</h2>',
+            f'<h2 style="text-align:center;">{problematic_count}</h2>',
             unsafe_allow_html=True,
         )
 
@@ -296,7 +286,7 @@ with st.spinner("Klargør download til Excel.."):
     if user_choice == "Hele landet" and selected_categories == [] and search_query == "":
         # Cache and create the Excel file for "Hele landet"
         hele_landet_excel = cache_excel_for_hele_landet(filtered_df)
-        
+
         # Create a download button for the Excel file
         st.download_button(
             label="Download til Excel",

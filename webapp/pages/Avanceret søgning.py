@@ -1,10 +1,7 @@
 import streamlit as st
 import polars as pl
-import base64
-import os
 from utils.data_processing import (
     get_data,
-    decrypt_dataframe,
     filter_df_by_search,
     fix_column_types_and_sort,
     format_number_european,
@@ -33,19 +30,7 @@ st.logo("webapp/images/GC_png_oneline_lockup_Outline_Blaa_RGB.png")
 
 load_css("webapp/style.css")
 
-with st.spinner("Klargør side..."):
-    df_retrieved = get_data()
-
-    encoded_key = os.getenv("ENCRYPTION_KEY")
-
-    if encoded_key is None:
-        raise ValueError("ENCRYPTION_KEY is not set in the environment variables.")
-
-    encryption_key = base64.b64decode(encoded_key)
-
-    col_list = ["Område", "ISIN kode", "Værdipapirets navn"]
-    df_pl = decrypt_dataframe(df_retrieved, encryption_key, col_list)
-
+df_pl = get_data()
 
 with st.sidebar:
     write_markdown_sidebar()
@@ -124,17 +109,11 @@ with st.expander("Disse områder har ingen problematiske investeringer:"):
 # Filter the dataframe by selected priorities and search query
 filtered_df = (
     df_pl.filter(
-        (
-            df_pl["Priority"].is_in(
-                [p for p in selected_priorities if p is not None]
-            )
-        )
+        (df_pl["Priority"].is_in([p for p in selected_priorities if p is not None]))
         | (df_pl["Priority"].is_null())
     )
     if None in selected_priorities
-    else df_pl.filter(
-        df_pl["Priority"].is_in(selected_priorities)
-    )
+    else df_pl.filter(df_pl["Priority"].is_in(selected_priorities))
 )
 
 filtered_df = filter_dataframe_by_multiple_choices(filtered_df, selected_areas)

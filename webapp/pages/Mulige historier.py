@@ -29,25 +29,24 @@ Altså om en dansk bank, pensionsselskab eller FN har udpeget værdipapiret som 
 Gravercentret har også udpeget en række værdipapirer som kan være potentielt kontroversielle.\n
 
 I det følgende finder du en liste over mulige historier, der kunne laves på baggrund af data:\n
-
-*OBS: Tallene for Københavns Kommune er opdateret pr. 15/10 og derfor er tallene på denne side ligeledes blevet opdateret.*
+*OBS: tallene er tilrettet d. 8/11 efter justeringer af markedsværdien af Odense Kommunes investeringer.*
 """
 )
 
-with st.expander("**Kommuner og regioner har investeringer for 66,7 milliarder**"):
+with st.expander("**Kommuner og regioner har investeringer for 66,1 milliarder**"):
     st.write(
         """
-        Kommunerne og regioner har oplyst til Gravercentret og Danwatch, at de samlet set har 141.260 værdipapirer til en samlet værdi af 66,7 mia. kroner. Der er kun to kommuner – Læsø og Samsø, der ikke har investeret i værdipapirer. \n
-        Midlerne er typisk sat i obligationer (53 mia.), men en stor andel er også sat i aktier (6,8 mia.). Derudover er 916 mio. investeret i virksomhedsobligationer, der er udstedt af firmaer. Endelig er der investeringer for 5,9 mia., hvor investeringskategorien typisk ikke er blevet oplyst.
+        Kommunerne og regioner har oplyst til Gravercentret og Danwatch, at de samlet set har 141.263 værdipapirer til en samlet værdi af 66,1 mia. kroner. Der er kun to kommuner – Læsø og Samsø, der ikke har investeret i værdipapirer.\n
+        Midlerne er typisk sat i obligationer (53,3 mia.), men en stor andel er også sat i aktier (6,5 mia.). Derudover er 945,1 mio. investeret i virksomhedsobligationer, der er udstedt af firmaer. Endelig er der investeringer for 5,3 mia., hvor investeringskategorien typisk ikke er blevet oplyst.
         """
     )
 
-with st.expander("**Kommuner og regioner har penge i 5.133 problematiske værdipapirer**"):
+with st.expander("**Kommuner og regioner har penge i 5.181 problematiske værdipapirer**"):
     st.write(
         """
-        Landets kommuner og regioner har investeret i mere end 5.000 værdipapirer, der er udpeget som problematiske af enten danske banker, pensionsselskaber eller FN. Helt præcist er der tale om 5.133 værdipapirer. Dertil kommer 1.420 værdipapirer som Gravercentret vurderer potentielt kan være kontroversielle, selv om de ikke er decideret sortlistet.\n
-        I alt har 79 kommuner og regioner investeret 413 millioner kroner i problematiske aktier.\n
-        Kalundborg Kommune er topscoreren med hele 574 værdipapirer, der er udpeget som problematiske, mens Rødovre Kommune har 322 problematiske værdipapirer og Vejen Kommune har 213.\n
+        Landets kommuner og regioner har investeret i mere end 5.000 værdipapirer, der er udpeget som problematiske af enten danske banker, pensionsselskaber eller FN. Helt præcist er der tale om 5.181 værdipapirer. Dertil kommer 1.420 værdipapirer som Gravercentret vurderer potentielt kan være kontroversielle, selv om de ikke er decideret sortlistet.\n
+        I alt har 79 kommuner og regioner investeret 408,1 millioner kroner i problematiske aktier.\n
+        Kalundborg Kommune er topscoreren med hele 598 værdipapirer, der er udpeget som problematiske, mens Rødovre Kommune har 330 problematiske værdipapirer og Vejen Kommune har 221.\n
         Beløbsmæssigt er det ikke overraskende de tre store kommuner, der har flest midler placeret i problematiske aktier. København har 70,9 millioner i problematiske aktier, Region Sjælland har 22,3 millioner og Århus har 21,7 millioner.
         """
     )
@@ -57,17 +56,17 @@ with st.expander(
 ):
     st.write(
         """
-        62 kommuner og regioner investerer i selskaber på FN's sortliste over firmaer med aktiviteter i besatte områder på Vestbredden. I alt er der investeret for 17 millioner kroner.\n
+        62 kommuner og regioner investerer i selskaber på FN's sortliste over firmaer med aktiviteter i besatte områder på Vestbredden.  I alt er der investeret for 14,8 millioner kroner.\n
         Guldborgsund Kommuner har flest af disse værdipapirer – 16 i alt, mens Rødovre har 15 og Mariagerfjord, Høje Taastrup og Aabenraa alle har 11 investeringer.\n
-        Beløbsmæssigt er det Odense med 3,4 millioner samlet og Region Nordjylland med 1,9 millioner samlet, der er topscorerne.
+        Beløbsmæssigt er det Region Nordjylland med 1,9 millioner samlet og Odense Kommune med 1,1 millioner samlet, der er topscorerne. 
         """
     )
 
 with st.expander("**Kommuner med sundhedspolitik investerer i sodavand og fastfood**"):
     st.write(
         """
-        Investeringer i Coca-Cola forekommer i 75 kommuner og regioner for i alt 40,3 millioner kroner. Københavns Kommune har sat flest penge i selskabet med 6 millioner kroner, mens Odense Kommune har investeret 3,8 millioner i Coca-Cola.\n
-        Konkurrenten Pepsi har 71 kommuner og regioner investeret samlet 25,9 millioner kroner i. Igen har Odense sat flest penge i selskabet med 2,8 millioner kroner, mens Region Sjælland har investeret 2,1 millioner.\n
+        Investeringer i Coca-Cola forekommer i 75 kommuner og regioner for i alt 39 millioner kroner. Københavns Kommune har sat flest penge i selskabet med 6 millioner kroner, mens Odense Kommune har investeret 2,4 millioner i Coca-Cola.\n
+        Konkurrenten Pepsi har 71 kommuner og regioner investeret samlet 24,9 millioner kroner i. Region Sjælland har investeret 2,1 millioner, Københavns Kommune 1,9 millioner og Odense Kommune 1,8 millioner kroner.\n
         McDonald’s har 44 kommuner og regioner købt sig ind i og her har Region Sjælland investeret mest – nemlig 2,6 millioner kroner, mens Køge Kommune er på andenpladsen med 1,7 millioner kroner. I alt er der investeret for 13,9 millioner kroner.\n
         Disse investeringer kan anses som problematiske idet kommunerne og især regionerne har et ansvar for befolkningens sundhed.\n
         Der er mange flere producenter af potentielt usunde fødevarer i data end dem, vi har markeret. Vi har kun udpeget en håndfuld af de mest kendte selskaber.
@@ -77,7 +76,7 @@ with st.expander("**Kommuner med sundhedspolitik investerer i sodavand og fastfo
 with st.expander("**Kommuner har sat penge i sortlistede lande**"):
     st.write(
         """
-        22 kommuner og regioner har investeringer i statsobligationer fra såkaldt kontroversielle stater. Det er lande, som eksempelvis Saudi Arabien, Kina, Pakistan, Venezuela og Qatar, som er sat på eksklusionslisten af danske banker eller pensionsselskaber og i kolonnen "Eksklusion (Af hvem og hvorfor)" kan du se, hvorfor de enkelte banker og pensionsselskaber har udelukket investeringer i de pågældende lande. I alt har kommuner og regioner 837 værdipapirer af denne type til en samlet værdi af 25,6 millioner kroner.\n
+        22 kommuner og regioner har investeringer i statsobligationer fra såkaldt kontroversielle stater. Det er lande, som eksempelvis Saudi Arabien, Kina, Pakistan, Venezuela og Qatar, som er sat på eksklusionslisten af danske banker eller pensionsselskaber og i kolonnen "Eksklusion (Af hvem og hvorfor)" kan du se, hvorfor de enkelte banker og pensionsselskaber har udelukket investeringer i de pågældende lande. I alt har kommuner og regioner 885 værdipapirer af denne type til en samlet værdi af 26,1 millioner kroner.\n
         Region Nordjylland har investeret 6,9 millioner i disse sortlistede statsobligationer, mens Ringkøbing-Skjern har investeret 6,3 millioner. I tabellen på forsiden er disse investeringer markeret med orange. 
         """
     )
@@ -114,7 +113,7 @@ with st.expander(
 ):
     st.write(
         """
-        <p>63 kommuner og regioner har investeret samlet 23,1 millioner kroner i værdipapirer, der er udpeget til at være problematiske på grund af overtrædelser af menneskerettigheder.</p>
+        <p>63 kommuner og regioner har investeret samlet 23,7 millioner kroner i værdipapirer, der er udpeget til at være problematiske på grund af overtrædelser af menneskerettigheder.</p>
         <p>Her har Københavns Kommune investeret mest med 3,7 millioner kroner, mens Aarhus Kommune har investeret 1,5 millioner.</p>
         <p>I tabellen på <a href="/Forside" target="_self">forsiden</a> er denne type problematiske investeringer beskrevet som "menneskerettigheder" i søgefeltet "Vælg problemkategori" i venstre side.</p>
         """,
@@ -141,8 +140,8 @@ with st.expander("**Regioner investerer i medicinalfirmaer**"):
 with st.expander("**Kommuner investerer millioner i fossile brændstoffer**"):
     st.write(
         """
-        <p>Kommuner og regioner har før fået kritik for at beskæftige sig med selskaber, der beskæftiger sig med fossile brændstoffer - men 65 kommuner og regioner har fortsat investeringer i branchen for samlet 37 millioner kroner.</p>
-        <p>Odense Kommune har investeringer for 3,7 millioner kroner i denne kategori og Region Sjælland har for 2,5 millioner kroner.</p>
+        <p>Kommuner og regioner har før fået kritik for at beskæftige sig med selskaber, der beskæftiger sig med fossile brændstoffer - men 65 kommuner og regioner har fortsat investeringer i branchen for samlet 36,5 millioner kroner.</p>
+        <p>Odense Kommune har investeringer for 3,1 millioner kroner i denne kategori og Region Sjælland har for 2,5 millioner kroner.</p>
         <p>Det er også værd at bemærke, at Kalundborg Kommune har intet mindre end 208 forskellige værdipapirer for samlet 1,1 millioner kroner i selskaber, der beskæftiger sig med fossile brændstoffer.</p>
         <p>Undersøg, hvordan det står til i de kommuner, du dækker, på <a href="/Forside" target="_self">forsiden</a> ved at vælge "fossile brændstoffer" som problemkategori i venstre side.</p>
         """,
@@ -153,7 +152,7 @@ with st.expander("**Kommuner investerer millioner i fossile brændstoffer**"):
 with st.expander("**Kommuner investerer i atomvåben**"):
     st.write(
         """
-        <p>75 kommuner og regioner har investeret i såkaldt kontroversielle våben - herunder atomvåben og klyngebomber. Samlet set er der investeret for 25,6 millioner kroner. Odense Kommune har investeret 4 millioner og Region Hovedstaden 3,1 millioner kroner.</p>
+        <p>75 kommuner og regioner har investeret i såkaldt kontroversielle våben - herunder atomvåben og klyngebomber. Samlet set er der investeret for 22,8 millioner kroner. Region Hovedstaden har investeret 3,1 millioner kroner og Aarhus Kommune har investeret 2,4 millioner.</p>
         <p>Hvis du gerne vil kigge nærmere på, hvilke kommuner og regioner, der har investeret i våben, kan du på <a href="/Forside" target="_self">forsiden</a> vælge "kontroversielle våben" som problemkategori i venstre side. Du kan også vælge "våben og militær" i samme menu, for at se på, hvor meget kommuner og regioner har investeret i våben og militær, som ikke er på den kontroversielle liste over våben.</p>
         """,
         unsafe_allow_html=True,
@@ -197,12 +196,13 @@ st.markdown(
     """##### Videre research:
 Der kan være flere kontroversielle værdipapirer blandt de omkring 140.000 investeringer, som kommunerne og regioner har foretaget. \n
 Hvis man vil dykke længere ned i materialet kan man få hjælp fra disse NGO-lister over kontroversielle selskaber indenfor forskellige kategorier:\n
-- [Olie- og gassektoren](https://gogel.org/)
-- [Kulsektoren](https://www.coalexit.org/)
+- [Den animalske fødevaresektor - Dansk Vegetarisk Forening (DVF)](vegetarisk.dk)
+- [Olie- og gassektoren - Global Oil & Gas Exit List (GOGEL)](https://gogel.org/)
+- [Kulsektoren - Global Coal Exit List(GCEL)](https://www.coalexit.org/)
+- [Israel-Palæstina konflikten - Who Profits Research Center](https://www.whoprofits.org/)
+- [Våben - SIPRI Arms Industry Database](https://www.sipri.org/databases/armsindustry)
+- [Menneskerettigheder - Business & Human Rights Resource Centre](https://www.business-humanrights.org/en/companies/)
 - [Største banker, der finansierer den fossile sektor](https://www.bankingonclimatechaos.org/)
-- [Israel-Palæstina konflikten](https://www.whoprofits.org/)
-- [Våben](https://www.sipri.org/databases/armsindustry)
-- [Menneskerettigheder](https://www.business-humanrights.org/en/companies/)
 
 """
 )

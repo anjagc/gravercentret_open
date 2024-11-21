@@ -1,7 +1,7 @@
 /* styles.css */
-body, h1, h2, h3, h4, h5, h6, input, button {
+body, h1, h2, h3, h4, h5, h6, input, p, button {
     font-family: 'Raleway', sans-serif;
-    color: rgb(0, 0, 0);
+    /* color: rgb(0, 0, 0); */
 } 
  
 /* Reduce the top margin and padding */
@@ -19,12 +19,12 @@ header {
 
 /* Change background color of the header */
 [data-testid="stHeader"] {
-    background-color: #ffffff; /* Your desired color */
+    /* background-color: #ffffff;  */
 }
 
 /* Change background color of the main app content */
 [data-testid="stAppViewContainer"] {
-    background-color: #ffffff; /* Your desired color */
+    /* background-color: #ffffff;  */
 }
 
 [data-testid="stSidebar"] .stLogo {
@@ -34,15 +34,15 @@ header {
 
 /* Custom sidebar styling */
 [data-testid=stSidebar] {  
-    background-color: rgb(212, 227, 240); /*rgb(212, 227, 240);  173,214,234*/
+    background-color: rgb(212, 227, 240); 
     color: rgb(0, 0, 0);
 }
  
 /* Custom sidebar styling for all text elements, excluding select box */
-/* [data-testid=stSidebar] *:not(.stSelectbox div[data-baseweb="select"] *):not(.stTextInput input):not(.stNumberInput input):not(.stTextArea textarea):not(.stButton>button) {
-    color: white !important;
+[data-testid=stSidebar] *:not(.stSelectbox div[data-baseweb="select"] *):not(.stTextInput input):not(.stNumberInput input):not(.stTextArea textarea):not(.stButton>button) {
+    color: black !important;
 }
-  */
+
 /* Ensure the dropdown menu background and text color match */
 [data-testid=stSidebar] .stSelectbox div[data-baseweb="select"] {
     color: black !important;

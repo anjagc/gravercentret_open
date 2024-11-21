@@ -32,7 +32,7 @@ Kommuner og regioner har derfor typisk investeret deres midler gennem investerin
 ##### Hvad har vi bedt om?
 Vi har anmodet om de senest opgjorte beholdningslister og markedsværdier, og der kan derfor 
             i sagens natur være variation i, hvornår tallene er opgjort. Hovedparten af kommunerne har dog valgt at trække nye opgørelser til brug for besvarelsen af vores anmodning, der blev fremsat ultimo juni 2024.\n
-Tallene fra flere af de største kommuner er opgjort noget tidligere. Esbjerg Kommunes investeringer er opgjort 01.09.2023, Århus Kommune 31.03.2024, Odense Kommune 31.03.2024 og Aalborg Kommune 30.04.2024.\n
+Tallene fra flere af de største kommuner er opgjort noget tidligere. Esbjerg Kommunes investeringer er opgjort 01.09.2023, Aarhus Kommune 31.03.2024, Odense Kommune 31.03.2024 og Aalborg Kommune 30.04.2024.\n
 For hvert værdipapir har vi søgt at indhente:
 - ISIN-kode
 - Værdipapirets navn

@@ -4,22 +4,14 @@ import polars as pl
 import pandas as pd
 import streamlit as st
 import re
-import os
-from datetime import timedelta
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.primitives import padding
-import base64
 from io import BytesIO
 import uuid
 from datetime import datetime
 
 
-@st.cache_data(show_spinner="Indlæser data")  # , ttl=timedelta(hours=10)
+@st.cache_data(show_spinner="Indlæser data")
 def get_data():
-    engine = create_engine(
-        "sqlite:///data/investerings_database_encrypted_new.db"
-    )  # Ret efter udgivelse
+    engine = create_engine("sqlite:///data/investerings_database.db")
 
     query = """
         SELECT [Kommune] AS [Område], [ISIN kode], [Værdipapirets navn], 
@@ -42,67 +34,25 @@ def get_data():
     with engine.connect() as conn:
         df_polars = pl.read_database(query, conn)
 
-    df_pandas = df_polars.to_pandas()
+    return df_polars
 
-    return df_pandas
-
-
-# Decrypt data using AES-CBC mode
-def aes_decrypt(encrypted_data, key):
-    if encrypted_data is None:
-        return None  # Handle None values gracefully
-
-    # Proceed with decryption if the data is not None
-    encrypted_data = base64.b64decode(encrypted_data.encode())  # Decode Base64 to bytes
-    iv = encrypted_data[:16]  # Extract the first 16 bytes as the IV
-    ciphertext = encrypted_data[16:]
-
-    cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
-    decryptor = cipher.decryptor()
-
-    decrypted_padded_data = decryptor.update(ciphertext) + decryptor.finalize()
-
-    # Remove padding
-    unpadder = padding.PKCS7(128).unpadder()
-    decrypted_data = unpadder.update(decrypted_padded_data) + unpadder.finalize()
-
-    return decrypted_data.decode()
-
-
-# Function to decrypt specified columns of the DataFrame using AES-CBC
-@st.cache_data(show_spinner="Dekrypterer data", ttl=timedelta(hours=10))
-def decrypt_dataframe(df, key, col_list):
-    df_decrypted = df.copy()  # Create a copy of the DataFrame
-
-    for col in col_list:
-        if pd.api.types.is_string_dtype(df_decrypted[col]):
-            # Decrypt string columns
-            df_decrypted[col] = df_decrypted[col].apply(lambda x: aes_decrypt(x, key))
-        else:
-            # Convert to the original data type after decryption
-            df_decrypted[col] = df_decrypted[col].apply(lambda x: aes_decrypt(str(x), key))
-
-    df_decrypted = pl.from_pandas(df_decrypted)
-
-    return df_decrypted
 
 # Cache the data formatting and display function with _ to skip hashing the dataframe
 @st.cache_data
 def cache_data_for_hele_landet(_filtered_df):
     return format_and_display_data(_filtered_df)
 
+
 # Cache the Excel generation function with _ to skip hashing the dataframe
 @st.cache_data
 def cache_excel_for_hele_landet(_filtered_df):
     return to_excel_function(_filtered_df)
 
+
 def get_ai_text(area):
-    table_name = os.getenv("TABLE_NAME_AI")
-    engine = create_engine(
-        "sqlite:///data/investerings_database_encrypted_new.db"
-    )  # Ret efter udgivelse
+    engine = create_engine("sqlite:///data/investerings_database.db")  # Ret efter udgivelse
     with engine.connect() as conn:
-        query = f"SELECT [Resumé] FROM {table_name} WHERE `Kommune` = '{area}';"  # Example query
+        query = f"SELECT [Resumé] FROM kommunale_regioner_ai_tekster WHERE `Kommune` = '{area}';"  # Example query
 
         # Execute the query and load the result into a Polars DataFrame
         result_df = pd.read_sql(query, conn)
@@ -441,7 +391,7 @@ def create_user_session_log(page_name):
     if "user_id" not in st.session_state:
         st.session_state["user_id"] = str(uuid.uuid4())  # Generate a unique ID
         print(f"[{timestamp}] New user session: {st.session_state["user_id"]} (Forside)")
-
-    # Log the user session with a print statement
-    user_id = st.session_state["user_id"]
-    print(f"[{timestamp}] User session: {user_id} ({page_name})")
+    else:
+        # Log the user session with a print statement
+        user_id = st.session_state["user_id"]
+        print(f"[{timestamp}] User session: {user_id} ({page_name})")
